@@ -31,9 +31,9 @@ export class HttpInterceptorService implements HttpInterceptor  {
       //     return event;
       // }),
       catchError((errorResponse: HttpErrorResponse) => {
-          const reason = errorResponse && errorResponse.error && errorResponse.error.message || 'Error sending or receiving data';
+          const message = errorResponse && errorResponse.error && errorResponse.error.message || 'Error sending or receiving data';
 
-          this._toastr.error(`${errorResponse.status} - ${reason}`, 'Uh-oh!');
+          this._toastr.error(`${errorResponse.status} - ${message}`, 'Uh-oh!');
 
           return throwError(errorResponse);
       }));
