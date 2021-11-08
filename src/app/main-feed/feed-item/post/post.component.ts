@@ -18,6 +18,7 @@ export class PostComponent {
       return this.post.sign.companyDisplayName;
     }
     if (this.post && this.post.sign.signType === 1) {
+
       return this.post.sign.location;
     }
     if (this.post && this.post.sign.signType === 2) {
@@ -27,12 +28,14 @@ export class PostComponent {
       return this.post.sign.username;
     }
     if (this.post && this.post.sign.signType === 5) {
+
       return `${this.post.sign.firstLastName.firstName} ${this.post.sign.firstLastName.lastName}`;
     }
     if (this.post && (this.post.sign.signType === 6 || this.post.sign.signType === 7)) {
       return 'Teacher';
     }
     if (this.post && this.post.sign.signType === 8) {
+
       return 'Deactivated user';
     }
 
@@ -51,7 +54,7 @@ export class PostComponent {
     return this.isMessageTypeTextMessage &&
     !!this.post && !!this.post.messageData &&
     !!this.post.messageData.text &&
-    this.post.messageData.text.includes('http');
+    this.post.messageData.text.trim().indexOf('http') === 0;
   }
 
   get totalReactions(): number {

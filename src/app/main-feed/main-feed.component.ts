@@ -52,7 +52,9 @@ export class MainFeedComponent implements OnInit {
   }
 
   private _filterCards(cards: ICard[]): ICard[] {
+
     const cardsFilteredByType: ICard[] = cards.filter((card: ICard) => card.type === 0 || card.type === 2);
+
     const cardsFilteredByPriority: ICard[] = [];
     const cardsIndexedByPriority: {[key: string]: ICard} = {};
 
@@ -76,6 +78,7 @@ export class MainFeedComponent implements OnInit {
   }
 
   private _mixCardsWithPosts(cards: ICard[], posts: IPost[]): Array<ICard | IPost> {
+
     const sortedCards: ICard[] = cards.sort((cardOne: ICard, cardTwo: ICard) => (cardOne.position > cardTwo.position) ? 1 : -1);
     const postsAndCards: Array<ICard | IPost> = [...posts];
 
@@ -86,6 +89,7 @@ export class MainFeedComponent implements OnInit {
         break;
       }
     }
+
     return postsAndCards;
   }
 
