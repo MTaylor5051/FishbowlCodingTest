@@ -6,8 +6,6 @@ import { PostModule } from './post/post.module';
 import { CardTypeZeroModule } from './card-type-zero/card-type-zero.module';
 import { CardTypeTwoModule } from './card-type-two/card-type-two.module';
 
-
-
 @NgModule({
   declarations: [
     FeedItemComponent

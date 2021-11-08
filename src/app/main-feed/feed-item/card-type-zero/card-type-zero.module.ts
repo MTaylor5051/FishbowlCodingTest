@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { CardTypeZeroComponent } from './card-type-zero.component';
+import { SharedUiModule } from 'src/app/shared/ui/shared-ui.module';
 
 
 
@@ -9,7 +11,8 @@ import { CardTypeZeroComponent } from './card-type-zero.component';
     CardTypeZeroComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedUiModule
   ],
   exports: [
     CardTypeZeroComponent

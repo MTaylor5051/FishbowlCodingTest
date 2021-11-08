@@ -15,7 +15,7 @@ export class HttpInterceptorService implements HttpInterceptor  {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    const token: string = '80e752d7-4ae6-471e-adcd-9b21f76acf35';
+    const token: string = 'ba1df257-2487-4737-a05c-f54108ab8f82';
 
     const requestAmended = request.clone(
       {
@@ -24,12 +24,6 @@ export class HttpInterceptorService implements HttpInterceptor  {
       });
 
     return next.handle(requestAmended).pipe(
-      // map((event: HttpEvent<any>) => {
-      //     if (event instanceof HttpResponse) {
-      //         console.log('event--->>>', event);
-      //     }
-      //     return event;
-      // }),
       catchError((errorResponse: HttpErrorResponse) => {
           const message = errorResponse && errorResponse.error && errorResponse.error.message || 'Error sending or receiving data';
 

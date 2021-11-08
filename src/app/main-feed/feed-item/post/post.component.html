@@ -1,1 +1,41 @@
-<p>post works!</p>
+<li  >
+  <!-- begin timeline-time -->
+  <div class="timeline-time">
+     <span class="date">{{ post?.date | date:'longDate'}}</span>
+     <span class="time">{{ post?.date | date:'shortTime'}}</span>
+  </div>
+  <!-- end timeline-time -->
+  <!-- begin timeline-icon -->
+  <div class="timeline-icon">
+     <a href="javascript:;">&nbsp;</a>
+  </div>
+  <!-- end timeline-icon -->
+  <!-- begin timeline-body -->
+  <div class="timeline-body">
+     <div class="timeline-header">
+        <span [hidden]="!post?.feedIcon"><img [src]="post?.feedIcon" class="userimage" alt=""></span>
+        <span class="username">{{authorSignature}}</span>
+        <span class="pull-right text-primary">&nbsp; <i class="fas fa-arrow-right"></i> {{post?.feedName}}</span>
+     </div>
+     <div class="timeline-content">
+        <p class="lead" *ngIf="isMessageTypeTextMessage">
+           <i *ngIf="!isMessageTypeLink" class="fa fa-quote-left fa-fw pull-left"></i>
+           <a *ngIf="isMessageTypeLink" [href]="post?.messageData?.text">{{post?.messageData?.text}}</a>
+           <span *ngIf="!isMessageTypeLink">&nbsp;{{post?.text}}&nbsp;</span>
+           <i *ngIf="!isMessageTypeLink" class="fa fa-quote-right fa-fw pull-right"></i>
+        </p>
+        <p class="lead" *ngIf="isMessageTypePhoto">{{post?.text}}</p>
+        <img *ngIf="isMessageTypePhoto" [src]="post?.messageData?.url" [style.max-height.px]="post?.messageData?.height">
+     </div>
+     <div class="timeline-footer">
+
+        <button *ngIf="!!this.post?.reactionCounters?.like" class="m-r-15 text-inverse-lighter icon-button" tooltip='<p><i class="fas fa-thumbs-up fa-fw fa-lg m-r-3 text-primary"></i> <strong>{{this.post?.reactionCounters?.like}}</strong> - Like</p>'><i class="fas fa-thumbs-up fa-fw fa-lg m-r-3 text-primary"></i></button>
+        <button *ngIf="!!this.post?.reactionCounters?.funny" class="m-r-15 text-inverse-lighter icon-button" tooltip='<p><i class="fas fa-laugh-squint fa-fw fa-lg m-r-3 text-success"></i> <strong>{{this.post?.reactionCounters?.funny}}</strong> - Funny</p>'><i class="fas fa-laugh-squint fa-fw fa-lg m-r-3 text-success"></i></button>
+        <button *ngIf="!!this.post?.reactionCounters?.helpful" class="m-r-15 text-inverse-lighter icon-button" tooltip='<p><i class="fas fa-hands-helping fa-fw fa-lg m-r-3 text-danger"></i> <strong>{{this.post?.reactionCounters?.helpful}}</strong> - Helpful</p>'><i class="fas fa-hands-helping fa-fw fa-lg m-r-3 text-danger"></i></button>
+        <button *ngIf="!!this.post?.reactionCounters?.smart" class="m-r-15 text-inverse-lighter icon-button" tooltip='<p><i class="fas fa-lightbulb fa-fw fa-lg m-r-3 text-warning"></i> <strong>{{this.post?.reactionCounters?.smart}}</strong> - Smart</p>'><i class="fas fa-lightbulb fa-fw fa-lg m-r-3 text-warning"></i></button>
+        <button *ngIf="!!this.post?.reactionCounters?.uplifting" class="m-r-15 text-inverse-lighter icon-button" tooltip='<p><i class="fas fa-smile fa-fw fa-lg m-r-3 text-info"></i> <strong>{{this.post?.reactionCounters?.uplifting}}</strong> - Uplifting</p>'><i class="fas fa-smile fa-fw fa-lg m-r-3 text-info"></i></button>
+        <span class="text-muted" *ngIf="!!totalReactions" ><strong>{{totalReactions}}</strong></span>
+     </div>
+  </div>
+  <!-- end timeline-body -->
+</li>

@@ -1,16 +1,61 @@
-<p>main-feed works!</p>
-
-<app-feed-item></app-feed-item>
-<div class="search-results-container"
+<!-- <div class="container search-results-container"
     infinite-scroll
-    [scrollWindow]="false"
-    (scrolled)="onScrollDown($event)"
-    (scrolledUp)="onScrollUp($event)">
+    [scrollWindow]="true"
+    [infiniteScrollDistance]="1"
+    (scrolled)="onScrollDown()">
 
       <div class="list-group">
-        <a class="list-group-item list-group-item-action" *ngFor="let i of listArray">
-          <p class="mb-1">{{i}} Item added on {{direction}}</p>
+        <a class="list-group-item list-group-item-action" *ngFor="let feedItem of feedItems">
+          <app-feed-item [feedItem]="feedItem"></app-feed-item>
         </a>
       </div>
 
-</div>
+</div> -->
+
+<div class="container search-results-container">
+   <div class="row">
+      <div class="col-md-12">
+         <div id="content" class="content content-full-width">
+            <!-- begin profile -->
+            <!-- end profile -->
+            <!-- begin profile-content -->
+            <div class="profile-content">
+               <!-- begin tab-content -->
+               <div class="tab-content p-0">
+                  <!-- begin #profile-post tab -->
+                  <div class="tab-pane fade active show" id="profile-post">
+                     <!-- begin timeline -->
+                     <ul class="timeline" infinite-scroll
+                     [scrollWindow]="true"
+
+                     (scrolled)="onScrollDown()">
+
+
+                     <app-feed-item *ngFor="let feedItem of feedItems" [feedItem]="feedItem"></app-feed-item>
+
+
+
+                        <!-- <li> -->
+                           <!-- begin timeline-icon -->
+                           <!-- <div class="timeline-icon"> -->
+                              <!-- <a href="javascript:;">&nbsp;</a> -->
+                           <!-- </div> -->
+                           <!-- end timeline-icon -->
+                           <!-- begin timeline-body -->
+                           <!-- <div class="timeline-body"> -->
+                              <!-- Loading... -->
+                           <!-- </div> -->
+                           <!-- begin timeline-body -->
+                        <!-- </li> -->
+                     </ul>
+                     <!-- end timeline -->
+                  </div>
+                  <!-- end #profile-post tab -->
+               </div>
+               <!-- end tab-content -->
+            </div>
+            <!-- end profile-content -->
+         </div>
+      </div>
+   </div>
+  </div>

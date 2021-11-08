@@ -1,1 +1,23 @@
-<p>card-type-two works!</p>
+<li>
+  <div class="timeline-body">
+     <div class="timeline-header">
+      <span class="username" [style.color]="card?.content?.titleColor">{{card?.content?.title}}</span>
+     </div>
+     <div class="timeline-content">
+      <p class="lead-card">
+       <span [style.color]="card?.content?.textColor">{{card?.content?.text}}</span>
+      </p>
+      <form [formGroup]="pollForm"  [style.background-color]="card?.content?.backgroundColor" class="lead-card rounded-background">
+        <div class="form-check" *ngFor="let radioOption of card?.content?.answers">
+          <input class="form-check-input" type="radio" name="pollOptions" [id]="radioOption._id" [value]="radioOption.variant">
+          <label class="form-check-label" [for]="radioOption._id" [style.color]="radioOption.color">
+            {{radioOption?.text}}
+          </label>
+        </div>
+      </form>
+     </div>
+     <div class="timeline-footer">
+      <button type="button" class="btn btn-primary"><i class="fas fa-vote-yea fa-fw m-r-3"></i> &nbsp; Submit</button>
+     </div>
+  </div>
+</li>

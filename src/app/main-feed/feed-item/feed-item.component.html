@@ -1,2 +1,4 @@
-<p>feed-item works!</p>
-<app-post></app-post>
+
+<app-card-type-zero *ngIf="isCardTypeZero" [card]="returnCard"></app-card-type-zero>
+<app-card-type-two *ngIf="isCardTypeTwo" [card]="returnCard"></app-card-type-two>
+<app-post *ngIf="isPost" [post]="returnPost"></app-post>
